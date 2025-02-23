@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2024 at 07:13 AM
+-- Generation Time: Feb 23, 2025 at 08:20 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -76,7 +76,8 @@ INSERT INTO `books` (`id`, `title`, `author_id`, `genre_id`, `cover_image`) VALU
 (7, 'Pride and Prejudice', 7, 3, 'https://cdn.kobo.com/book-images/08ba5a67-f48d-420e-be8e-6de7a73b7d85/353/569/90/False/pride-prejudice-13.jpg'),
 (8, 'The Shining', 8, 4, 'https://m.media-amazon.com/images/I/81CuEX3W9UL._AC_UF1000,1000_QL80_.jpg'),
 (9, 'Murder on the Orient Express', 9, 4, 'https://i.pinimg.com/originals/df/53/c9/df53c9f1ac45321580db8173b9976ba0.png'),
-(10, 'The Chronicles of Narnia', 10, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8vg_DqcuniVrH3UxVhvSIT7EJ4OiVBvBLjA&s');
+(10, 'The Chronicles of Narnia', 10, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8vg_DqcuniVrH3UxVhvSIT7EJ4OiVBvBLjA&s'),
+(11, 'loren as a gangsta', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -103,6 +104,26 @@ INSERT INTO `genres` (`id`, `genre_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `intruders`
+--
+
+CREATE TABLE `intruders` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `attempt_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `attempt_count` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `intruders`
+--
+
+INSERT INTO `intruders` (`id`, `username`, `attempt_time`, `attempt_count`) VALUES
+(1, 'lkjoas', '2025-02-23 19:18:02', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -119,7 +140,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `created_at`, `first_login`) VALUES
-(1, 'loren', '$2y$10$Wz8/au5sCbd04DDPrHL8buo3uZHqysoXewDxEwajAdkhyaC9rcniq', '2024-11-03 22:41:56', 1);
+(1, 'loren', '$2y$10$Wz8/au5sCbd04DDPrHL8buo3uZHqysoXewDxEwajAdkhyaC9rcniq', '2024-11-03 22:41:56', 1),
+(2, 'opop', '$2y$10$iv8foOsrG0UwoY1hzHiYmeNIAa287OSw0ok1YEaosIhYmIlzVylyq', '2025-02-24 03:10:27', 1);
 
 --
 -- Indexes for dumped tables
@@ -146,6 +168,13 @@ ALTER TABLE `genres`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `intruders`
+--
+ALTER TABLE `intruders`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -165,7 +194,7 @@ ALTER TABLE `authors`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `genres`
@@ -174,10 +203,16 @@ ALTER TABLE `genres`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `intruders`
+--
+ALTER TABLE `intruders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
