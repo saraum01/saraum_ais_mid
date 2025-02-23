@@ -17,69 +17,77 @@ $intruders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text */
         }
-        .container {
-            margin-top: 50px;
-        }
-        h2 {
-            color: #dc3545;
-        }
-        table {
-            background: white;
+        .nav-logo {
+            width: 50px;
+            height: 50px;
         }
         .navbar {
-            background-color: #333;
+            background-color: #1c1c1c; /* Darker navbar */
         }
-        .navbar-brand, .nav-link {
-            color: #fff !important;
-        }
-        .container {
-            margin-top: 20px;
-        }
-        .lipstick-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .lipstick-item {
-            background-color: #f5f5f5;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .lipstick-item img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .like-button {
-            background-color: #ffc107;
-            color: #333;
+        .btn-primary {
+            background-color: #007bff; /* Blue button */
             border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
         }
-        .liked {
-            background-color: #ff5722;
-            color: white;
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue on hover */
         }
-    </style>
+        .table {
+            background-color: #1e1e1e; /* Table background */
+            color: #ffffff; /* Table text color */
+        }
+        .table th {
+            background-color: #007bff; /* Blue header */
+            color: #ffffff; /* White header text */
+        }
+        .table td {
+            background-color: #1e1e1e; /* Table data background */
+        }
+        .table tbody tr:hover {
+            background-color: #333333; /* Hover effect on rows */
+        }
+        h2, h5 {
+            color: #007bff; /* Blue headings */
+        }
+        .book-card {
+            background-color: #1e1e1e; /* Card background */
+            border-radius: 5px; /* Rounded corners */
+            padding: 15px;
+            margin: 10px; /* Spacing between cards */
+            transition: transform 0.3s; /* Smooth scale effect */
+        }
+        .book-card:hover {
+            transform: scale(1.05); /* Scale up on hover */
+        }
+        .book-cover {
+            width: 150px; /* Fixed width for cover images */
+            height: 225px; /* Fixed height for cover images */
+            object-fit: cover; /* Ensures images maintain aspect ratio */
+            border-radius: 5px; /* Rounded corners for images */
+        }
+        .collapse {
+            margin-top: 15px; /* Spacing above collapse sections */
+        }
+        .row {
+            margin-top: 20px; /* Spacing for the row */
+        }
+    </style> 
 </head>
 <body>
     
-<nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">Beauty Store</a>
-    <div class="ml-auto">
-        <a href="logout.php" class="nav-link">Logout</a>
-        <a href="joindata.php" class="nav-link">joindata</a>
-        <a href="warning.php" class="nav-link">warning</a>
-        <a href="dashboard.php" class="nav-link">dashboard</a>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><img src="logo.png" class="nav-logo" alt="Logo"></a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="joindata.php">Join</a></li>
+                <li class="nav-item"><a class="nav-link" href="dashboard.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="warning.php">warning</a></li>
+                <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
 </nav>
     <div class="container">
         <h2 class="text-center">Intruder Attempt Logs</h2>

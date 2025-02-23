@@ -92,6 +92,7 @@ $unionQuery = $pdo->query("
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="dashboard.php">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="joindata.php">Join Data</a></li>
+                <li class="nav-item"><a class="nav-link" href="warning.php">warning</a></li>
                 <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
             </ul>
         </div>
