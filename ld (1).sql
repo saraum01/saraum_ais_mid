@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2025 at 08:20 PM
+-- Generation Time: Apr 09, 2025 at 08:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -119,7 +119,12 @@ CREATE TABLE `intruders` (
 --
 
 INSERT INTO `intruders` (`id`, `username`, `attempt_time`, `attempt_count`) VALUES
-(1, 'lkjoas', '2025-02-23 19:18:02', 2);
+(1, 'lkjoas', '2025-02-23 19:18:02', 2),
+(3, 'opop23', '2025-04-09 15:17:40', 2),
+(4, 'sdsa', '2025-04-09 15:34:45', 1),
+(5, 'sdsadsadsa', '2025-04-09 15:34:48', 1),
+(6, 's', '2025-04-09 16:07:19', 1),
+(7, 'sda', '2025-04-09 16:14:18', 1);
 
 -- --------------------------------------------------------
 
@@ -132,16 +137,18 @@ CREATE TABLE `users` (
   `username` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
-  `first_login` tinyint(1) NOT NULL DEFAULT 1
+  `otp` varchar(6) DEFAULT NULL,
+  `otp_expiry` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `created_at`, `first_login`) VALUES
-(1, 'loren', '$2y$10$Wz8/au5sCbd04DDPrHL8buo3uZHqysoXewDxEwajAdkhyaC9rcniq', '2024-11-03 22:41:56', 1),
-(2, 'opop', '$2y$10$iv8foOsrG0UwoY1hzHiYmeNIAa287OSw0ok1YEaosIhYmIlzVylyq', '2025-02-24 03:10:27', 1);
+INSERT INTO `users` (`id`, `username`, `password`, `created_at`, `otp`, `otp_expiry`) VALUES
+(1, 'loren', '$2y$10$Wz8/au5sCbd04DDPrHL8buo3uZHqysoXewDxEwajAdkhyaC9rcniq', '2024-11-03 22:41:56', NULL, NULL),
+(2, 'opop', '$2y$10$iv8foOsrG0UwoY1hzHiYmeNIAa287OSw0ok1YEaosIhYmIlzVylyq', '2025-02-24 03:10:27', '991837', '2025-04-09 19:14:41'),
+(3, 'mama', '$2y$10$TUnE8DG3XWqFpY7JAbhZzOa1q.BwJcv6SqgLwXgTUVSrSTNn7YlPK', '2025-04-09 23:34:15', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -206,13 +213,13 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `intruders`
 --
 ALTER TABLE `intruders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

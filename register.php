@@ -81,48 +81,87 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-       body {
+        body {
             font: 14px sans-serif;
-            background-color: #000; /* Black background */
-            color: #e0e0e0; /* Light text */
+            background-color: #0d47a1; /* Blue background */
+            color: #e0e0e0; 
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height for centering */
+            height: 100vh;
             margin: 0;
         }
+
         .wrapper {
             width: 100%;
-            max-width: 400px; /* Set a max-width for the form */
-            padding: 30px; /* Increased padding for better spacing */
-            background-color: #1a1a1a; /* Dark gray background for the form */
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+            max-width: 400px;
+            padding: 40px;
+            background-color: #1a237e; /* Darker blue background */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
+
+        .wrapper h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffccbc; /* Light orange text for heading */
+            text-align: center;
+        }
+
         .form-control {
-            background-color: #121212; /* Darker input field */
-            color: #e0e0e0; /* Light text */
+            background-color: #121212; /* Dark input field background */
+            color: #e0e0e0; /* Light gray text */
             border: 1px solid #0d47a1; /* Blue border */
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
+
         .form-control:focus {
-            background-color: #121212; /* Dark background on focus */
-            border-color: #2196F3; /* Bright blue border on focus */
-            box-shadow: 0 0 5px rgba(33, 150, 243, 0.5); /* Glow effect on focus */
+            border-color: #1976D2; /* Lighter blue when focused */
+            box-shadow: 0 0 8px rgba(33, 150, 243, 0.6);
         }
+
         .btn-primary {
-            background-color: #0d47a1; /* Dark blue button */
+            background-color: #0d47a1;
             border: none;
-            transition: background-color 0.3s; /* Smooth transition */
+            color: white;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
+
         .btn-primary:hover {
-            background-color: #1976D2; /* Brighter blue on hover */
+            background-color: #1976D2;
+            transform: scale(1.05); /* Slight scaling effect on hover */
         }
+
         .alert-danger {
-            background-color: #f44336; /* Bright red for error messages */
-            color: #fff; /* White text */
-            border-radius: 5px; /* Slight rounding of corners */
+            background-color: #f44336;
+            color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 14px;
         }
-    </style> 
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .wrapper {
+                padding: 30px;
+            }
+
+            .btn-primary {
+                padding: 12px 24px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
